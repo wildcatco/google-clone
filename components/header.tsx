@@ -1,6 +1,6 @@
 import User from "./user";
 
-export default function Header() {
+const Header = () => {
   return (
     <header className="flex justify-between p-5 text-sm text-gray-700">
       <div className="flex space-x-4 items-center">
@@ -14,4 +14,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
