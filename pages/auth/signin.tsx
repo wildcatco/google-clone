@@ -14,7 +14,7 @@ const SignIn: NextPage<Props> = ({ provider }) => {
       <div className="mt-40">
         <div key={provider.id} className="flex flex-col items-center">
           <Image
-            src="https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            src="/images/google-logo.png"
             alt="google-logo"
             width={208}
             height={70.69}

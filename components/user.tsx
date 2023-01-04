@@ -4,15 +4,14 @@ import Image from "next/image";
 const User = () => {
   const { data: session } = useSession();
 
-  const defaultImageUrl =
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
+  const defaultUserImage = "/images/default-user.webp";
 
   if (session) {
     return (
       <>
         <Image
           onClick={() => signOut()}
-          src={session.user?.image || defaultImageUrl}
+          src={session.user?.image || defaultUserImage}
           alt="user-image"
           width={40}
           height={40}
