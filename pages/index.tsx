@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Image from "next/image";
+import { HiMicrophone, HiSearch } from "react-icons/hi";
 import Header from "../components/header";
 
 const Home = () => {
@@ -15,6 +17,24 @@ const Home = () => {
       <Header />
 
       {/* Body */}
+      <form className="flex flex-col items-center mt-32">
+        <Image
+          src={"/images/google-logo.png"}
+          alt="google-logo"
+          width={272}
+          height={92}
+          className="object-cover"
+        />
+        <div className="flex w-[36rem] mt-5 mx-auto max-w-[90%] border border-gray-200 hover:shadow-lg px-5 py-2 rounded-full items-center">
+          <HiSearch className="h-5 text-gray-500 mr-3" />
+          <input type="text" className="flex-grow focus:outline-none" />
+          <HiMicrophone className="h-5" />
+        </div>
+        <div className="flex flex-col sm:flex-row w-1/2 space-y-2 mt-8 sm:space-y-0 sm:space-x-4 sm:justify-center">
+          <button className="btn">Google Search</button>
+          <button className="btn">I&apos;m Feeling Lucky</button>
+        </div>
+      </form>
 
       {/* Footer */}
     </>
