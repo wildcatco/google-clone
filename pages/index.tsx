@@ -20,7 +20,7 @@ const HomePage = () => {
 
     router.push({
       pathname: "/search",
-      query: { term },
+      query: { term, searchType: "" },
     });
   };
 

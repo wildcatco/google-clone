@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { HiMicrophone, HiSearch, HiX } from "react-icons/hi";
+import SearchHeaderOptions from "./search-header-options";
 import User from "./user";
 
 const SearchHeader = () => {
@@ -18,7 +19,7 @@ const SearchHeader = () => {
 
     router.push({
       pathname: "/search",
-      query: { term },
+      query: { term, searchType: "" },
     });
   };
 
@@ -60,6 +61,7 @@ const SearchHeader = () => {
         </form>
         <User className="ml-auto whitespace-nowrap" />
       </div>
+      <SearchHeaderOptions />
     </header>
   );
 };
