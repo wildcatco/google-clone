@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { MouseEvent, useRef } from "react";
+import React, { useRef } from "react";
 import { HiMicrophone, HiSearch } from "react-icons/hi";
 import Footer from "../components/footer";
 import Header from "../components/header";
 
-const Home = () => {
+const HomePage = () => {
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSearch = (event: MouseEvent) => {
+  const handleSearch = (event: React.MouseEvent) => {
     event.preventDefault();
 
     const term = searchInputRef.current?.value.trim();
@@ -68,4 +68,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
