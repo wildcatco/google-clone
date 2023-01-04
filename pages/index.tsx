@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { HiMicrophone, HiSearch } from "react-icons/hi";
+import Footer from "../components/footer";
 import Header from "../components/header";
 
 const Home = () => {
@@ -37,6 +38,7 @@ const Home = () => {
       </form>
 
       {/* Footer */}
+      <Footer />
     </>
   );
 };
