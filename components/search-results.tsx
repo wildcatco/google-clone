@@ -2,7 +2,6 @@ import parse from "html-react-parser";
 import PaginationButtons from "./pagination-buttons";
 
 interface SearchResult {
-  cacheId: string;
   title: string;
   htmlSnippet: string;
   link: string;
@@ -25,7 +24,7 @@ const SearchResults: React.FC<Props> = ({ results }) => {
         About {formattedTotalResults} results ({formattedSearchTime} seconds)
       </p>
       {items.map((result: SearchResult) => (
-        <div key={result.cacheId} className="max-w-xl mb-8">
+        <div key={result.link} className="max-w-xl mb-8">
           <div>
             <a className="peer text-sm truncate" href={result.link}>
               {result.formattedUrl}

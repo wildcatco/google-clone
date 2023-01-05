@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import ImageResults from "../components/image-results";
 import SearchHeader from "../components/search-header";
 import SearchResults from "../components/search-results";
 import mockedResponse from "../data/mock-response";
@@ -11,7 +12,7 @@ interface Props {
 
 const SearchPage: NextPage<Props> = ({ searchResults }) => {
   const router = useRouter();
-  const { term } = router.query;
+  const { term, searchType } = router.query;
 
   return (
     <div>
@@ -23,7 +24,11 @@ const SearchPage: NextPage<Props> = ({ searchResults }) => {
       <SearchHeader />
 
       {/* Search Results */}
-      <SearchResults results={searchResults} />
+      {searchType === "image" ? (
+        <ImageResults results={searchResults} />
+      ) : (
+        <SearchResults results={searchResults} />
+      )}
     </div>
   );
 };
@@ -33,13 +38,14 @@ export default SearchPage;
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
-  const mockData = true; // ! Should set false after dev
+  const mockData = false; // ! Should set false after dev
+
+  const { term, searchType } = context.query;
 
   let data;
   if (mockData) {
-    data = mockedResponse;
+    data = searchType === "image" ? mockedResponse.image : mockedResponse.all;
   } else {
-    const { term, searchType } = context.query;
     const startIndex = context.query.start || "1";
     const url = `https://www.googleapis.com/customsearch/v1?key=${
       process.env.SEARCH_API_KEY
