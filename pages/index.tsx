@@ -62,6 +62,7 @@ const HomePage = () => {
           alt="google-logo"
           width={272}
           height={92}
+          priority
           className="object-cover"
         />
         <div className="flex w-[36rem] mt-5 mx-auto max-w-[90%] border border-gray-200 hover:shadow-lg px-5 py-2 rounded-full items-center">
