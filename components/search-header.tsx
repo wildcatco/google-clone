@@ -19,7 +19,7 @@ const SearchHeader = () => {
 
     router.push({
       pathname: "/search",
-      query: { term, searchType: "" },
+      query: { term, searchType: router.query.searchType || "" },
     });
   };
 
