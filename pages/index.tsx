@@ -24,6 +24,25 @@ const HomePage = () => {
     });
   };
 
+  const handleRandomSearch = async (event: React.MouseEvent) => {
+    event.preventDefault();
+
+    const response = await fetch("https://random-word-api.herokuapp.com/word");
+    if (!response.ok) {
+      return;
+    }
+
+    const data = await response.json();
+    const randomWord = data[0];
+
+    router.push({
+      pathname: "/search",
+      query: {
+        term: randomWord,
+      },
+    });
+  };
+
   return (
     <div>
       <Head>
@@ -58,7 +77,9 @@ const HomePage = () => {
           <button onClick={handleSearch} className="btn">
             Google Search
           </button>
-          <button className="btn">I&apos;m Feeling Lucky</button>
+          <button onClick={handleRandomSearch} className="btn">
+            I&apos;m Feeling Lucky
+          </button>
         </div>
       </form>
 
