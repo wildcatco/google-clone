@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { HiMicrophone, HiSearch, HiX } from "react-icons/hi";
 import SearchHeaderOptions from "./search-header-options";
 import User from "./user";

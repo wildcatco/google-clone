@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import { createElement } from "react";
 import { IconType } from "react-icons/lib";
 
 interface Props {
@@ -28,7 +28,7 @@ const SearchHeaderOption: React.FC<Props> = ({ title, icon, selected }) => {
         selected && "text-blue-500 border-blue-500"
       }`}
     >
-      {React.createElement(icon)}
+      {createElement(icon)}
       <p>{title}</p>
     </div>
   );

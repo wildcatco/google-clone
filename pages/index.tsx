@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { HiMicrophone, HiSearch } from "react-icons/hi";
 import Footer from "../components/footer";
 import Header from "../components/header";

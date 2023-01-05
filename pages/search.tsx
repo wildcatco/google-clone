@@ -1,6 +1,8 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import SearchHeader from "../components/search-header";
+import SearchResults from "../components/search-results";
 import mockedResponse from "../data/mock-response";
 
 interface Props {
@@ -8,16 +10,20 @@ interface Props {
 }
 
 const SearchPage: NextPage<Props> = ({ searchResults }) => {
+  const router = useRouter();
+  const { term } = router.query;
+
   return (
     <div>
       <Head>
-        <title>Google Search</title>
+        <title>{term} - Google Search</title>
       </Head>
 
       {/* Search Header */}
       <SearchHeader />
 
       {/* Search Results */}
+      <SearchResults results={searchResults} />
     </div>
   );
 };
