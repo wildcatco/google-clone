@@ -1,4 +1,5 @@
 import parse from "html-react-parser";
+import PaginationButtons from "./pagination-buttons";
 
 interface SearchResult {
   cacheId: string;
@@ -42,6 +43,7 @@ const SearchResults: React.FC<Props> = ({ results }) => {
           <p className="text-gray-600">{parse(result.htmlSnippet)}</p>
         </div>
       ))}
+      <PaginationButtons />
     </div>
   );
 };

@@ -40,11 +40,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     data = mockedResponse;
   } else {
     const { term, searchType } = context.query;
+    const startIndex = context.query.start || "1";
     const url = `https://www.googleapis.com/customsearch/v1?key=${
       process.env.SEARCH_API_KEY
     }&cx=${process.env.SEARCH_CONTEXT_KEY}&q=${term}${
       searchType === "image" ? "&searchType=image" : ""
-    }`;
+    }&start=${startIndex}`;
 
     const response = await fetch(url);
     data = await response.json();
